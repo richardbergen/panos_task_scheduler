@@ -1,24 +1,5 @@
-import logging, sys
-
+import logging
 import netmiko
-
-def load_third_party_libraries():
-    try:
-        global netmiko
-        import netmiko
-    except:
-        response = ''
-        def read_response():
-            response = input('The required library "Netmiko" library was not found. Do you want me to attempt to install it for you? (y/n)')
-        if response == 'y':
-            pass
-        if response == 'n':
-            sys.exit('Quitting without installing the required library.')
-        else:
-            print('You entered an invalid option, please type in "y" or "n".')
-            read_response()
-
-load_third_party_libraries()
 
 AUTOCOMMIT_MAX_RETRIES = 45
 AUTOCOMMIT_RETRY_SLEEP_TIME_SEC = 5

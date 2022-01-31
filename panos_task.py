@@ -3,6 +3,32 @@ import http.client as hc
 from apscheduler.schedulers.background import BackgroundScheduler as Scheduler
 import panos_lib
 
+def load_third_party_libraries():
+    def user_response(library_name):
+        response = input(f'The required library "{library_name}" library was not found. Do you want me to attempt to install it for you? (y/n)')
+
+        if response == 'y':
+            pass
+        if response == 'n':
+            sys.exit('Quitting without installing the required library.')
+        else:
+            print('You entered an invalid option, please type in "y" or "n".')
+
+    try:
+        global netmiko
+        import netmiko
+    except:
+        user_response("netmiko")
+    
+    try:
+        global apscheduler
+        from apscheduler.schedulers.background import BackgroundScheduler as Scheduler
+    except:
+        user_response("apscheduler")
+
+
+load_third_party_libraries()
+
 current_date_time = datetime.datetime.now()
 print(f'Current date & time: {current_date_time.strftime("%Y/%m/%d %H:%M:%S")}')
 
