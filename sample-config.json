@@ -1,0 +1,12 @@
+{
+    "panos_devices": [
+        "192.168.1.1"
+    ],
+    "operational_commands": [
+        "show system info",
+        "show interface all"
+    ],
+    "set_commands": [
+        "set deviceconfig system hostname Panorama"
+    ]
+}
