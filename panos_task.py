@@ -1,6 +1,5 @@
 import argparse, time, sys, datetime, json
 import http.client as hc
-import panos_lib
 
 def load_third_party_libraries():
     def user_response(library_name):
@@ -25,8 +24,10 @@ def load_third_party_libraries():
     except:
         user_response("apscheduler")
 
-
 load_third_party_libraries()
+
+import panos_lib
+
 
 current_date_time = datetime.datetime.now()
 print(f'Current date & time: {current_date_time.strftime("%Y/%m/%d %H:%M:%S")}')
