@@ -1,11 +1,14 @@
-import argparse, time, sys, datetime, json
+import argparse, time, sys, datetime, json, subprocess
 import http.client as hc
 
 def user_response(library_name):
-    response = input(f'The required library "{library_name}" library was not found. Do you want me to attempt to install it for you? (y/n)')
+    response = input(f'The required library "{library_name}" library was not found. Do you want me to attempt to install it for you? (y/n): ')
 
     if response == 'y':
-        pass
+        try:
+            subprocess.check_call([sys.executable, '-m', 'pip3', 'install', library_name])
+        except:
+            sys.exit('The command "pip3" was not found. Please install pip3 on your system first before proeeding.')
     if response == 'n':
         sys.exit('Quitting without installing the required library.')
     else:
