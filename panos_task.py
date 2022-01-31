@@ -6,7 +6,7 @@ def user_response(library_name):
 
     if response == 'y':
         try:
-            subprocess.check_call([sys.executable, '-m', 'pip3', 'install', library_name])
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', library_name])
         except:
             sys.exit('The command "pip3" was not found. Please install pip3 on your system first before proeeding.')
     if response == 'n':
