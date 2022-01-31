@@ -1,6 +1,5 @@
 import argparse, time, sys, datetime, json
 import http.client as hc
-from apscheduler.schedulers.background import BackgroundScheduler as Scheduler
 import panos_lib
 
 def load_third_party_libraries():
