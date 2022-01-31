@@ -13,6 +13,7 @@ def user_response(library_name):
         sys.exit('Quitting without installing the required library.')
     else:
         print('You entered an invalid option, please type in "y" or "n".')
+        user_response(library_name)
 
 try:
     global netmiko
